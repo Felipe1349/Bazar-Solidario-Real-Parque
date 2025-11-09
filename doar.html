@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quero Doar - Bazar Solidário Real Parque</title>
+  <meta name="description" content="Cadastre sua doação no Bazar Solidário Real Parque e ajude a transformar vidas." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" href="fotos/logo.png" type="image/x-icon">
+
+</head>
+<body>
+  <a href="index.html" class="back-link">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Voltar ao Site
+  </a>
+
+  <div class="donation-container">
+    <div class="donation-header">
+      <div class="donation-logo">🎁</div>
+      
+      <h1 class="donation-title">Quero Doar</h1>
+      <p class="donation-subtitle">Cadastre sua doação e ajude a transformar vidas na nossa comunidade. Cada item doado faz a diferença!</p>
+    </div>
+
+    <div class="donation-form-container">
+      <div class="success-message" id="successMessage">
+        ✅ Doação cadastrada com sucesso! Entraremos em contato em breve.
+      </div>
+
+      <form class="donation-form" id="donationForm">
+        <!-- Informações do Item -->
+        <div class="form-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 7L12 3L4 7M20 7L12 11M20 7V17L12 21M12 11L4 7M12 11V21M4 7V17L12 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Informações do Item
+          </h2>
+
+          <div class="form-group">
+            <label class="form-label">Categoria *</label>
+            <div class="category-grid">
+              <div class="category-option">
+                <input type="radio" id="cat-roupas" name="categoria" value="roupas" required>
+                <label for="cat-roupas" class="category-label">
+                  <div class="category-icon">👕</div>
+                  <span class="category-name">Roupas</span>
+                </label>
+              </div>
+              <div class="category-option">
+                <input type="radio" id="cat-calcados" name="categoria" value="calcados">
+                <label for="cat-calcados" class="category-label">
+                  <div class="category-icon">👟</div>
+                  <span class="category-name">Calçados</span>
+                </label>
+              </div>
+              <div class="category-option">
+                <input type="radio" id="cat-brinquedos" name="categoria" value="brinquedos">
+                <label for="cat-brinquedos" class="category-label">
+                  <div class="category-icon">🧸</div>
+                  <span class="category-name">Brinquedos</span>
+                </label>
+              </div>
+              <div class="category-option">
+                <input type="radio" id="cat-livros" name="categoria" value="livros">
+                <label for="cat-livros" class="category-label">
+                  <div class="category-icon">📚</div>
+                  <span class="category-name">Livros</span>
+                </label>
+              </div>
+              <div class="category-option">
+                <input type="radio" id="cat-utensilios" name="categoria" value="utensilios">
+                <label for="cat-utensilios" class="category-label">
+                  <div class="category-icon">🍴</div>
+                  <span class="category-name">Utensílios</span>
+                </label>
+              </div>
+              <div class="category-option">
+                <input type="radio" id="cat-acessorios" name="categoria" value="acessorios">
+                <label for="cat-acessorios" class="category-label">
+                  <div class="category-icon">👜</div>
+                  <span class="category-name">Acessórios</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="titulo" class="form-label">Título da Doação *</label>
+              <input 
+                type="text" 
+                id="titulo" 
+                name="titulo" 
+                class="form-input" 
+                placeholder="Ex: Roupas infantis tamanho 4-6 anos"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="estado" class="form-label">Estado do Item *</label>
+              <select id="estado" name="estado" class="form-select" required>
+                <option value="">Selecione o estado</option>
+                <option value="novo">Novo</option>
+                <option value="seminovo">Semi-novo</option>
+                <option value="usado-bom">Usado em bom estado</option>
+                <option value="usado-regular">Usado em estado regular</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="descricao" class="form-label">Descrição *</label>
+            <textarea 
+              id="descricao" 
+              name="descricao" 
+              class="form-textarea" 
+              placeholder="Descreva os itens que você quer doar, incluindo tamanhos, cores, quantidade, etc."
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Fotos dos Itens</label>
+            <div class="file-upload" id="fileUpload">
+              <svg class="file-upload-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="file-upload-text">Clique para adicionar fotos ou arraste aqui</div>
+              <small style="color: var(--muted);">PNG, JPG até 5MB cada</small>
+              <input type="file" id="fileInput" class="file-upload-input" multiple accept="image/*">
+            </div>
+            <div class="uploaded-files" id="uploadedFiles"></div>
+          </div>
+        </div>
+
+        <!-- Informações de Contato -->
+        <div class="form-section">
+          <h2 class="section-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Suas Informações
+          </h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome" class="form-label">Nome Completo *</label>
+              <input 
+                type="text" 
+                id="nome" 
+                name="nome" 
+                class="form-input" 
+                placeholder="Seu nome completo"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="telefone" class="form-label">Telefone/WhatsApp *</label>
+              <input 
+                type="tel" 
+                id="telefone" 
+                name="telefone" 
+                class="form-input" 
+                placeholder="(11) 99999-9999"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email" class="form-label">E-mail</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="form-input" 
+                placeholder="seu@email.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="bairro" class="form-label">Bairro *</label>
+              <input 
+                type="text" 
+                id="bairro" 
+                name="bairro" 
+                class="form-input" 
+                placeholder="Ex: Real Parque"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacoes" class="form-label">Observações</label>
+            <textarea 
+              id="observacoes" 
+              name="observacoes" 
+              class="form-textarea" 
+              placeholder="Informações adicionais, horários disponíveis para retirada, etc."
+              style="min-height: 80px;"
+            ></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          Cadastrar Doação
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // File upload functionality
+    const fileUpload = document.getElementById('fileUpload');
+    const fileInput = document.getElementById('fileInput');
+    const uploadedFiles = document.getElementById('uploadedFiles');
+    let selectedFiles = [];
+
+    fileUpload.addEventListener('click', () => fileInput.click());
+    fileUpload.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      fileUpload.classList.add('dragover');
+    });
+    fileUpload.addEventListener('dragleave', () => {
+      fileUpload.classList.remove('dragover');
+    });
+    fileUpload.addEventListener('drop', (e) => {
+      e.preventDefault();
+      fileUpload.classList.remove('dragover');
+      handleFiles(e.dataTransfer.files);
+    });
+
+    fileInput.addEventListener('change', (e) => {
+      handleFiles(e.target.files);
+    });
+
+    function handleFiles(files) {
+      Array.from(files).forEach(file => {
+        if (file.type.startsWith('image/') && file.size <= 5 * 1024 * 1024) {
+          selectedFiles.push(file);
+          displayFile(file);
+        } else {
+          alert('Por favor, selecione apenas imagens de até 5MB.');
+        }
+      });
+    }
+
+    function displayFile(file) {
+      const fileDiv = document.createElement('div');
+      fileDiv.className = 'uploaded-file';
+      fileDiv.innerHTML = `
+        <span>📷 ${file.name}</span>
+        <span class="remove-file" onclick="removeFile('${file.name}', this)">×</span>
+      `;
+      uploadedFiles.appendChild(fileDiv);
+    }
+
+    function removeFile(fileName, element) {
+      selectedFiles = selectedFiles.filter(file => file.name !== fileName);
+      element.parentElement.remove();
+    }
+
+    // Form submission
+    document.getElementById('donationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const successMessage = document.getElementById('successMessage');
+      
+      // Validação básica
+      const categoria = document.querySelector('input[name="categoria"]:checked');
+      const titulo = document.getElementById('titulo').value;
+      const estado = document.getElementById('estado').value;
+      const descricao = document.getElementById('descricao').value;
+      const nome = document.getElementById('nome').value;
+      const telefone = document.getElementById('telefone').value;
+      const bairro = document.getElementById('bairro').value;
+      
+      if (!categoria || !titulo || !estado || !descricao || !nome || !telefone || !bairro) {
+        alert('Por favor, preencha todos os campos obrigatórios (*).');
+        return;
+      }
+      
+      // Simular envio
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+      
+      setTimeout(() => {
+        successMessage.style.display = 'block';
+        this.reset();
+        selectedFiles = [];
+        uploadedFiles.innerHTML = '';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Cadastrar Doação';
+        
+        // Scroll para o topo para mostrar a mensagem
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Esconder mensagem após 5 segundos
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 5000);
+      }, 2000);
+    });
+
+    // Máscara para telefone
+    document.getElementById('telefone').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length >= 11) {
+        value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+      } else if (value.length >= 7) {
+        value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+      } else if (value.length >= 3) {
+        value = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+      }
+      e.target.value = value;
+    });
+  </script>
+</body>
+</html>
+
